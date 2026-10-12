@@ -1,33 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="de" class="h-full w-full overflow-hidden">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 26.2.5.1 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="00:00:00"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
-		pre { background: transparent }
-		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
-		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
-		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
-	</style>
-</head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre class="western">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;de&quot; class=&quot;h-full w-full overflow-hidden&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover&quot;&gt;
-    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-    &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot;&gt;
-    &lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;Fahrtenbuch&quot;&gt;
-    &lt;title&gt;Fahrtenbuch PWA&lt;/title&gt;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Fahrtenbuch">
+    <title>Fahrtenbuch PWA</title>
 
-    &lt;!-- Tailwind CSS --&gt;
-    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
         tailwind.config = {
             darkMode: 'media',
             theme: {
@@ -52,14 +35,14 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', '&quot;SF Pro Text&quot;', '&quot;SF Pro Display&quot;', '&quot;Helvetica Neue&quot;', 'sans-serif']
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'sans-serif']
                     }
                 }
             }
         }
-    &lt;/script&gt;
+    </script>
 
-    &lt;style&gt;
+    <style>
         *, *::before, *::after {
             box-sizing: border-box !important;
             max-width: 100%;
@@ -103,663 +86,412 @@
         .animate-action-sheet {
             animation: actionSheetUp 0.25s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
         }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body class=&quot;bg-ios-lightBg dark:bg-ios-darkBg text-gray-900 dark:text-white flex flex-col font-sans&quot;&gt;
+    </style>
+</head>
+<body class="bg-ios-lightBg dark:bg-ios-darkBg text-gray-900 dark:text-white flex flex-col font-sans">
 
-    &lt;!-- Header --&gt;
-    &lt;header class=&quot;safe-top bg-white/80 dark:bg-ios-darkCard/80 backdrop-blur-xl border-b border-gray-200/80 dark:border-gray-800/80 px-4 py-3 flex-shrink-0 z-20 flex items-center justify-between w-full&quot;&gt;
-        &lt;div&gt;
-            &lt;h1 id=&quot;page-title&quot; class=&quot;text-xl font-bold tracking-tight&quot;&gt;Fahrten&lt;/h1&gt;
-            &lt;p id=&quot;page-subtitle&quot; class=&quot;text-[11px] text-ios-gray&quot;&gt;Fahrtenbuch für iOS&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;button onclick=&quot;openModal()&quot; class=&quot;bg-ios-blue text-white rounded-full font-semibold shadow-sm active:scale-95 transition-transform flex items-center justify-center w-8 h-8&quot;&gt;
-            &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2.5&quot; d=&quot;M12 4v16m8-8H4&quot;/&gt;&lt;/svg&gt;
-        &lt;/button&gt;
-    &lt;/header&gt;
+    <!-- Header -->
+    <header class="safe-top bg-white/80 dark:bg-ios-darkCard/80 backdrop-blur-xl border-b border-gray-200/80 dark:border-gray-800/80 px-4 pb-3 flex items-center justify-between z-30 flex-shrink-0">
+        <div>
+            <h1 id="page-title" class="text-xl font-bold tracking-tight">Fahrten</h1>
+            <p id="page-subtitle" class="text-[11px] text-ios-gray">Fahrtenbuch für iOS</p>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button onclick="openModal()" class="bg-ios-blue text-white rounded-full font-semibold shadow-sm active:scale-95 transition-all w-9 h-9 flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path></svg>
+            </button>
+        </div>
+    </header>
 
-    &lt;!-- Main Content --&gt;
-    &lt;main id=&quot;main-scroll&quot; class=&quot;flex-1 overflow-y-auto overflow-x-hidden p-4 space-y-4 no-scrollbar w-full max-w-full&quot;&gt;
+    <!-- Main Content -->
+    <main id="main-scroll" class="flex-1 overflow-y-auto overflow-x-hidden p-4 space-y-4 no-scrollbar w-full max-w-full">
         
-        &lt;!-- TAB 1: FAHRTEN LISTE --&gt;
-        &lt;section id=&quot;tab-trips&quot; class=&quot;space-y-3 w-full max-w-full&quot;&gt;
-            &lt;div class=&quot;flex space-x-2 w-full max-w-full&quot;&gt;
-                &lt;div class=&quot;relative flex-1&quot;&gt;
-                    &lt;input type=&quot;text&quot; id=&quot;search-input&quot; oninput=&quot;renderTrips()&quot; placeholder=&quot;Suchen (Ort, Anlass)...&quot; class=&quot;w-full bg-white dark:bg-ios-darkCard text-sm rounded-xl pl-9 pr-3 py-2.5 border border-gray-200/80 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-ios-blue&quot;&gt;
-                    &lt;svg class=&quot;w-4 h-4 text-ios-gray absolute left-3 top-3&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z&quot;/&gt;&lt;/svg&gt;
-                &lt;/div&gt;
-                &lt;select id=&quot;filter-category&quot; onchange=&quot;renderTrips()&quot; class=&quot;bg-white dark:bg-ios-darkCard text-xs font-medium rounded-xl px-2.5 py-2.5 border border-gray-200/80 dark:border-gray-800 focus:outline-none&quot;&gt;
-                    &lt;option value=&quot;&quot;&gt;Alle&lt;/option&gt;
-                    &lt;option value=&quot;Geschäftlich&quot;&gt;Geschäftlich&lt;/option&gt;
-                    &lt;option value=&quot;Privat&quot;&gt;Privat&lt;/option&gt;
-                    &lt;option value=&quot;Arbeitsweg&quot;&gt;Arbeitsweg&lt;/option&gt;
-                &lt;/select&gt;
-            &lt;/div&gt;
+        <!-- TRIP LIST VIEW -->
+        <div id="view-trips" class="space-y-4 pb-20 w-full max-w-full">
+            <!-- Filter & Search -->
+            <div class="flex gap-2 w-full max-w-full">
+                <input type="text" id="search-input" placeholder="Suchen..." oninput="renderTrips()" class="flex-1 bg-white dark:bg-ios-darkCard border border-gray-300 dark:border-gray-700 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-ios-blue">
+                <select id="filter-category" onchange="renderTrips()" class="bg-white dark:bg-ios-darkCard border border-gray-300 dark:border-gray-700 rounded-xl px-3 py-2 text-xs focus:outline-none">
+                    <option value="">Alle Kategorien</option>
+                    <option value="Geschäftlich">Geschäftlich</option>
+                    <option value="Privat">Privat</option>
+                    <option value="Arbeitsweg">Arbeitsweg</option>
+                </select>
+            </div>
 
-            &lt;div id=&quot;trips-container&quot; class=&quot;space-y-2.5 w-full max-w-full&quot;&gt;
-                &lt;!-- Trip cards injected dynamically --&gt;
-            &lt;/div&gt;
-        &lt;/section&gt;
+            <!-- Stats Bar Card -->
+            <div class="bg-white dark:bg-ios-darkCard rounded-2xl p-4 shadow-sm border border-gray-200/60 dark:border-gray-800/60 grid grid-cols-2 gap-4">
+                <div>
+                    <span class="text-[11px] text-ios-gray block font-medium">Gesamtkilometer</span>
+                    <span id="stat-total-km" class="text-xl font-bold tracking-tight">0 km</span>
+                </div>
+                <div>
+                    <span class="text-[11px] text-ios-gray block font-medium">Anzahl Fahrten</span>
+                    <span id="stat-total-count" class="text-xl font-bold tracking-tight">0</span>
+                </div>
+            </div>
 
-        &lt;!-- TAB 2: STATISTIK --&gt;
-        &lt;section id=&quot;tab-stats&quot; class=&quot;space-y-4 hidden w-full max-w-full&quot;&gt;
-            &lt;div class=&quot;grid grid-cols-2 gap-3 w-full&quot;&gt;
-                &lt;div class=&quot;bg-white dark:bg-ios-darkCard p-4 rounded-2xl border border-gray-100 dark:border-gray-800&quot;&gt;
-                    &lt;span class=&quot;text-[11px] font-semibold text-ios-gray uppercase tracking-wider block&quot;&gt;Gesamt KM&lt;/span&gt;
-                    &lt;div id=&quot;stat-total-km&quot; class=&quot;text-2xl font-bold tracking-tight mt-1 truncate&quot;&gt;0.0 km&lt;/div&gt;
-                    &lt;span id=&quot;stat-total-count&quot; class=&quot;text-xs text-ios-gray mt-0.5 block&quot;&gt;0 Fahrten&lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;bg-white dark:bg-ios-darkCard p-4 rounded-2xl border border-gray-100 dark:border-gray-800&quot;&gt;
-                    &lt;span class=&quot;text-[11px] font-semibold text-ios-gray uppercase tracking-wider block&quot;&gt;Geschäftlich&lt;/span&gt;
-                    &lt;div id=&quot;stat-business-km&quot; class=&quot;text-2xl font-bold tracking-tight text-ios-blue mt-1 truncate&quot;&gt;0.0 km&lt;/div&gt;
-                    &lt;span id=&quot;stat-business-percent&quot; class=&quot;text-xs text-ios-gray mt-0.5 block&quot;&gt;0% anteilig&lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
+            <!-- List of Trips -->
+            <div id="trips-list" class="space-y-2.5 w-full max-w-full">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
 
-            &lt;div class=&quot;bg-white dark:bg-ios-darkCard p-4 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-3&quot;&gt;
-                &lt;h3 class=&quot;text-xs font-semibold text-ios-gray uppercase tracking-wider&quot;&gt;Verteilung der Fahrten&lt;/h3&gt;
-                &lt;div class=&quot;w-full bg-ios-gray5 dark:bg-ios-darkCardSec h-3 rounded-full overflow-hidden flex&quot;&gt;
-                    &lt;div id=&quot;bar-business&quot; class=&quot;bg-ios-blue h-full transition-all duration-500&quot; style=&quot;width: 0%&quot;&gt;&lt;/div&gt;
-                    &lt;div id=&quot;bar-commute&quot; class=&quot;bg-ios-green h-full transition-all duration-500&quot; style=&quot;width: 0%&quot;&gt;&lt;/div&gt;
-                    &lt;div id=&quot;bar-private&quot; class=&quot;bg-ios-orange h-full transition-all duration-500&quot; style=&quot;width: 0%&quot;&gt;&lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;grid grid-cols-3 gap-1 text-[11px] font-medium text-center&quot;&gt;
-                    &lt;div class=&quot;text-ios-blue truncate&quot;&gt;Geschäftlich: &lt;span id=&quot;stat-biz-val&quot;&gt;0 km&lt;/span&gt;&lt;/div&gt;
-                    &lt;div class=&quot;text-ios-green truncate&quot;&gt;Arbeitsweg: &lt;span id=&quot;stat-com-val&quot;&gt;0 km&lt;/span&gt;&lt;/div&gt;
-                    &lt;div class=&quot;text-ios-orange truncate&quot;&gt;Privat: &lt;span id=&quot;stat-priv-val&quot;&gt;0 km&lt;/span&gt;&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
+        <!-- STATS VIEW -->
+        <div id="view-stats" class="space-y-4 pb-20 hidden w-full max-w-full">
+            <div class="bg-white dark:bg-ios-darkCard rounded-2xl p-4 shadow-sm border border-gray-200/60 dark:border-gray-800/60 space-y-3">
+                <h3 class="text-sm font-semibold text-ios-gray uppercase tracking-wider">Auswertung nach Kategorie</h3>
+                <div id="category-stats-list" class="space-y-2 text-sm">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+        </div>
 
-            &lt;div class=&quot;bg-white dark:bg-ios-darkCard rounded-2xl border border-gray-100 dark:border-gray-800 p-4 space-y-2&quot;&gt;
-                &lt;h3 class=&quot;text-xs font-semibold text-ios-gray uppercase tracking-wider mb-2&quot;&gt;Zusammenfassung&lt;/h3&gt;
-                &lt;div class=&quot;flex justify-between text-xs py-1.5 border-b border-gray-100 dark:border-gray-800&quot;&gt;
-                    &lt;span class=&quot;text-ios-gray&quot;&gt;Durchschnittliche Distanz&lt;/span&gt;
-                    &lt;span id=&quot;stat-avg-km&quot; class=&quot;font-semibold&quot;&gt;0.0 km&lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;flex justify-between text-xs py-1.5 border-b border-gray-100 dark:border-gray-800&quot;&gt;
-                    &lt;span class=&quot;text-ios-gray&quot;&gt;Längste Fahrt&lt;/span&gt;
-                    &lt;span id=&quot;stat-max-km&quot; class=&quot;font-semibold&quot;&gt;0.0 km&lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;flex justify-between text-xs py-1.5&quot;&gt;
-                    &lt;span class=&quot;text-ios-gray&quot;&gt;Gespeicherte Fahrzeuge&lt;/span&gt;
-                    &lt;span id=&quot;stat-vehicle-count&quot; class=&quot;font-semibold&quot;&gt;1&lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/section&gt;
+        <!-- SETTINGS / IMPORT VIEW -->
+        <div id="view-settings" class="space-y-4 pb-20 hidden w-full max-w-full">
+            <div class="bg-white dark:bg-ios-darkCard rounded-2xl p-4 shadow-sm border border-gray-200/60 dark:border-gray-800/60 space-y-4">
+                <h3 class="text-sm font-semibold text-ios-gray uppercase tracking-wider">Daten & Drivenote CSV</h3>
+                <p class="text-xs text-ios-gray">Importiere deine Drivenote CSV-Datei oder sichere deine aktuellen Fahrten.</p>
+                
+                <div class="space-y-2 pt-2">
+                    <label class="block w-full bg-ios-blue text-white text-center py-3 rounded-xl font-semibold text-xs active:scale-95 transition-all cursor-pointer">
+                        Drivenote CSV importieren
+                        <input type="file" id="csv-file-input" accept=".csv, .txt" onchange="importDrivenoteCSV(event)" class="hidden">
+                    </label>
+                    <button onclick="exportCSV()" class="w-full bg-gray-200 dark:bg-ios-darkCardSec text-gray-900 dark:text-white py-3 rounded-xl font-semibold text-xs active:scale-95 transition-all">
+                        Fahrten als CSV exportieren
+                    </button>
+                    <button onclick="clearAllData()" class="w-full bg-ios-red/10 text-ios-red py-3 rounded-xl font-semibold text-xs active:scale-95 transition-all">
+                        Alle Daten löschen
+                    </button>
+                </div>
+            </div>
 
-        &lt;!-- TAB 3: IMPORT / EXPORT --&gt;
-        &lt;section id=&quot;tab-import&quot; class=&quot;space-y-4 hidden w-full max-w-full&quot;&gt;
-            &lt;div class=&quot;bg-white dark:bg-ios-darkCard p-4 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-3&quot;&gt;
-                &lt;h3 class=&quot;text-sm font-semibold&quot;&gt;Drivenote CSV-Import&lt;/h3&gt;
-                &lt;p class=&quot;text-xs text-ios-gray leading-relaxed&quot;&gt;
-                    Importiere deine bestehenden Daten direkt aus einer Drivenote CSV-Datei.
-                &lt;/p&gt;
+            <div class="bg-white dark:bg-ios-darkCard rounded-2xl p-4 shadow-sm border border-gray-200/60 dark:border-gray-800/60 space-y-2">
+                <h3 class="text-sm font-semibold text-ios-gray uppercase tracking-wider">Installation als iOS App</h3>
+                <ol class="text-xs space-y-2 text-gray-600 dark:text-gray-300 list-decimal list-inside">
+                    <li>Öffne diese Seite in Safari.</li>
+                    <li>Tippe unten auf das <strong>Teilen</strong>-Symbol.</li>
+                    <li>Wähle <strong>"Zum Home-Bildschirm"</strong>.</li>
+                </ol>
+            </div>
+        </div>
 
-                &lt;div class=&quot;border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-5 text-center relative hover:border-ios-blue transition&quot;&gt;
-                    &lt;input type=&quot;file&quot; id=&quot;csv-file-input&quot; accept=&quot;.csv,.txt&quot; onchange=&quot;handleFileSelect(event)&quot; class=&quot;absolute inset-0 opacity-0 w-full h-full cursor-pointer&quot;&gt;
-                    &lt;svg class=&quot;w-8 h-8 text-ios-blue mx-auto mb-1.5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12&quot;/&gt;&lt;/svg&gt;
-                    &lt;span class=&quot;text-xs font-semibold text-ios-blue block&quot;&gt;CSV-Datei auswählen&lt;/span&gt;
-                    &lt;span class=&quot;text-[10px] text-ios-gray block mt-0.5&quot;&gt;Drivenote Format unterstützt&lt;/span&gt;
-                &lt;/div&gt;
+    </main>
 
-                &lt;textarea id=&quot;csv-text-input&quot; rows=&quot;3&quot; placeholder=&quot;Oder CSV Inhalt hier einfügen...&quot; class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-3 border border-gray-200 dark:border-gray-800 focus:outline-none font-mono&quot;&gt;&lt;/textarea&gt;
+    <!-- iOS Tab Bar -->
+    <nav class="safe-bottom bg-white/80 dark:bg-ios-darkCard/80 backdrop-blur-xl border-t border-gray-200/80 dark:border-gray-800/80 h-14 flex items-center justify-around z-30 flex-shrink-0 w-full">
+        <button onclick="switchTab('trips')" id="tab-trips" class="flex flex-col items-center justify-center flex-1 text-ios-blue">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+            <span class="text-[10px] font-medium mt-0.5">Fahrten</span>
+        </button>
+        <button onclick="switchTab('stats')" id="tab-stats" class="flex flex-col items-center justify-center flex-1 text-ios-gray">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+            <span class="text-[10px] font-medium mt-0.5">Statistik</span>
+        </button>
+        <button onclick="switchTab('settings')" id="tab-settings" class="flex flex-col items-center justify-center flex-1 text-ios-gray">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <span class="text-[10px] font-medium mt-0.5">Mehr</span>
+        </button>
+    </nav>
 
-                &lt;button onclick=&quot;importCSVData()&quot; class=&quot;w-full bg-ios-blue text-white py-2.5 rounded-xl font-medium text-xs shadow-sm active:scale-95 transition&quot;&gt;
-                    Import starten
-                &lt;/button&gt;
-            &lt;/div&gt;
+    <!-- Modal: Add / Edit Trip -->
+    <div id="trip-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-end justify-center transition-opacity">
+        <div class="bg-ios-lightBg dark:bg-ios-darkCard w-full max-w-lg rounded-t-3xl p-5 space-y-4 max-h-[90dvh] overflow-y-auto no-scrollbar pb-10">
+            <div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-800 pb-3">
+                <h2 id="modal-title" class="text-base font-bold">Neue Fahrt</h2>
+                <button onclick="closeModal()" class="text-ios-blue font-semibold text-xs">Schließen</button>
+            </div>
+            <form id="trip-form" onsubmit="saveTrip(event)" class="space-y-3">
+                <input type="hidden" id="trip-id">
+                <div>
+                    <label class="block text-[11px] font-semibold text-ios-gray uppercase mb-1">Datum</label>
+                    <input type="date" id="trip-date" required class="w-full bg-white dark:bg-ios-darkCardSec border border-gray-300 dark:border-gray-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-ios-blue">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-ios-gray uppercase mb-1">Start</label>
+                        <input type="text" id="trip-start" placeholder="Startort" required class="w-full bg-white dark:bg-ios-darkCardSec border border-gray-300 dark:border-gray-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-ios-blue">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-ios-gray uppercase mb-1">Ziel</label>
+                        <input type="text" id="trip-destination" placeholder="Zielort" required class="w-full bg-white dark:bg-ios-darkCardSec border border-gray-300 dark:border-gray-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-ios-blue">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-ios-gray uppercase mb-1">Kilometer (km)</label>
+                        <input type="number" step="0.1" id="trip-km" placeholder="0.0" required class="w-full bg-white dark:bg-ios-darkCardSec border border-gray-300 dark:border-gray-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-ios-blue">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-ios-gray uppercase mb-1">Kategorie</label>
+                        <select id="trip-category" class="w-full bg-white dark:bg-ios-darkCardSec border border-gray-300 dark:border-gray-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-ios-blue">
+                            <option value="Geschäftlich">Geschäftlich</option>
+                            <option value="Privat">Privat</option>
+                            <option value="Arbeitsweg">Arbeitsweg</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-ios-gray uppercase mb-1">Zweck / Notiz</label>
+                    <textarea id="trip-purpose" rows="2" placeholder="Optionaler Zweck..." class="w-full bg-white dark:bg-ios-darkCardSec border border-gray-300 dark:border-gray-700 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-ios-blue"></textarea>
+                </div>
+                <div class="pt-2 flex gap-2">
+                    <button type="submit" class="flex-1 bg-ios-blue text-white py-3 rounded-xl font-semibold text-xs active:scale-95 transition-all">Speichern</button>
+                    <button type="button" id="modal-delete-btn" onclick="deleteCurrentEditingTrip()" class="hidden bg-ios-red/10 text-ios-red px-4 py-3 rounded-xl font-semibold text-xs active:scale-95 transition-all">Löschen</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            &lt;div class=&quot;bg-white dark:bg-ios-darkCard p-4 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2&quot;&gt;
-                &lt;h3 class=&quot;text-sm font-semibold&quot;&gt;Daten Exportieren&lt;/h3&gt;
-                &lt;p class=&quot;text-xs text-ios-gray leading-relaxed&quot;&gt;Exportiere deine Fahrtenbuchdaten als CSV für Ihre Unterlagen.&lt;/p&gt;
-                &lt;button onclick=&quot;exportCSV()&quot; class=&quot;w-full bg-ios-green text-white py-2.5 rounded-xl font-medium text-xs shadow-sm active:scale-95 transition flex items-center justify-center space-x-2&quot;&gt;
-                    &lt;svg class=&quot;w-4 h-4&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4&quot;/&gt;&lt;/svg&gt;
-                    &lt;span&gt;CSV Exportieren&lt;/span&gt;
-                &lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/section&gt;
+    <!-- Action Sheet Confirm Overlay -->
+    <div id="confirm-sheet" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-end justify-center transition-opacity p-4">
+        <div class="w-full max-w-lg space-y-2 animate-action-sheet">
+            <div class="bg-white/90 dark:bg-ios-darkCard/90 backdrop-blur-xl rounded-2xl overflow-hidden">
+                <div class="p-4 text-center border-b border-gray-200 dark:border-gray-800">
+                    <p id="confirm-title" class="text-sm font-semibold">Fahrt löschen?</p>
+                    <p id="confirm-subtitle" class="text-xs text-ios-gray mt-0.5">Diese Aktion kann nicht rückgängig gemacht werden.</p>
+                </div>
+                <button id="confirm-yes-btn" class="w-full py-3.5 text-ios-red font-semibold text-sm active:bg-gray-200 dark:active:bg-gray-800 transition-colors">Löschen</button>
+            </div>
+            <button onclick="closeConfirmSheet()" class="w-full bg-white dark:bg-ios-darkCard py-3.5 rounded-2xl text-ios-blue font-semibold text-sm shadow-sm active:bg-gray-100 dark:active:bg-gray-800 transition-colors">Abbrechen</button>
+        </div>
+    </div>
 
-        &lt;!-- TAB 4: EINSTELLUNGEN --&gt;
-        &lt;section id=&quot;tab-settings&quot; class=&quot;space-y-4 hidden w-full max-w-full&quot;&gt;
-            &lt;div class=&quot;bg-white dark:bg-ios-darkCard p-4 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-3&quot;&gt;
-                &lt;div class=&quot;flex items-center space-x-2&quot;&gt;
-                    &lt;svg class=&quot;w-5 h-5 text-ios-blue&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z&quot;/&gt;&lt;/svg&gt;
-                    &lt;h3 class=&quot;text-sm font-semibold&quot;&gt;Dauerhafte Nutzung auf iOS&lt;/h3&gt;
-                &lt;/div&gt;
-                &lt;p class=&quot;text-xs text-ios-gray leading-relaxed&quot;&gt;Ohne App Store und ohne 7-Tage-Ablaufdatum auf deinem iPhone installieren:&lt;/p&gt;
-                &lt;ol class=&quot;text-xs space-y-2 text-gray-700 dark:text-gray-300 list-decimal list-inside bg-ios-lightBg dark:bg-ios-darkCardSec p-3 rounded-xl font-medium&quot;&gt;
-                    &lt;li&gt;Öffne diese Webseite in &lt;b&gt;Safari&lt;/b&gt;.&lt;/li&gt;
-                    &lt;li&gt;Tippe unten auf den &lt;b&gt;Teilen-Button&lt;/b&gt; (Quadrat mit Pfeil).&lt;/li&gt;
-                    &lt;li&gt;Wähle &lt;b&gt;„Zum Home-Bildschirm“&lt;/b&gt;.&lt;/li&gt;
-                &lt;/ol&gt;
-            &lt;/div&gt;
-
-            &lt;div class=&quot;bg-white dark:bg-ios-darkCard p-4 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-3&quot;&gt;
-                &lt;h3 class=&quot;text-sm font-semibold text-ios-red&quot;&gt;Gefahrenzone&lt;/h3&gt;
-                &lt;p class=&quot;text-xs text-ios-gray&quot;&gt;Alle lokal gespeicherten Fahrten löschen.&lt;/p&gt;
-                &lt;button onclick=&quot;askClearAllData()&quot; class=&quot;w-full bg-ios-red/10 text-ios-red py-2.5 rounded-xl font-semibold text-xs active:scale-95 transition&quot;&gt;
-                    Alle Daten löschen
-                &lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/section&gt;
-
-    &lt;/main&gt;
-
-    &lt;!-- Bottom Navigation --&gt;
-    &lt;nav class=&quot;safe-bottom bg-white/80 dark:bg-ios-darkCard/80 backdrop-blur-xl border-t border-gray-200/80 dark:border-gray-800/80 flex-shrink-0 z-20 flex justify-around py-2 w-full max-w-full&quot;&gt;
-        &lt;button onclick=&quot;switchTab('trips')&quot; id=&quot;nav-trips&quot; class=&quot;flex flex-col items-center flex-1 py-1 text-ios-blue&quot;&gt;
-            &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012-2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01&quot;/&gt;&lt;/svg&gt;
-            &lt;span class=&quot;text-[10px] font-medium mt-1&quot;&gt;Fahrten&lt;/span&gt;
-        &lt;/button&gt;
-        &lt;button onclick=&quot;switchTab('stats')&quot; id=&quot;nav-stats&quot; class=&quot;flex flex-col items-center flex-1 py-1 text-ios-gray&quot;&gt;
-            &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z&quot;/&gt;&lt;/svg&gt;
-            &lt;span class=&quot;text-[10px] font-medium mt-1&quot;&gt;Statistik&lt;/span&gt;
-        &lt;/button&gt;
-        &lt;button onclick=&quot;switchTab('import')&quot; id=&quot;nav-import&quot; class=&quot;flex flex-col items-center flex-1 py-1 text-ios-gray&quot;&gt;
-            &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12&quot;/&gt;&lt;/svg&gt;
-            &lt;span class=&quot;text-[10px] font-medium mt-1&quot;&gt;Import/Export&lt;/span&gt;
-        &lt;/button&gt;
-        &lt;button onclick=&quot;switchTab('settings')&quot; id=&quot;nav-settings&quot; class=&quot;flex flex-col items-center flex-1 py-1 text-ios-gray&quot;&gt;
-            &lt;svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z&quot;/&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M15 12a3 3 0 11-6 0 3 3 0 016 0z&quot;/&gt;&lt;/svg&gt;
-            &lt;span class=&quot;text-[10px] font-medium mt-1&quot;&gt;Info&lt;/span&gt;
-        &lt;/button&gt;
-    &lt;/nav&gt;
-
-    &lt;!-- EDIT / ADD MODAL SHEET --&gt;
-    &lt;div id=&quot;modal-overlay&quot; class=&quot;fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4 overflow-hidden w-full max-w-full&quot;&gt;
-        &lt;div class=&quot;bg-white dark:bg-ios-darkCard w-full sm:max-w-lg rounded-t-3xl sm:rounded-2xl max-h-[90dvh] flex flex-col shadow-2xl animate-action-sheet overflow-hidden max-w-full&quot;&gt;
-            &lt;div class=&quot;px-4 py-3 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between flex-shrink-0 bg-white/90 dark:bg-ios-darkCard/90 backdrop-blur-md&quot;&gt;
-                &lt;button onclick=&quot;closeModal()&quot; class=&quot;text-ios-blue text-sm&quot;&gt;Abbrechen&lt;/button&gt;
-                &lt;h3 id=&quot;modal-header-title&quot; class=&quot;font-bold text-sm&quot;&gt;Fahrt bearbeiten&lt;/h3&gt;
-                &lt;button onclick=&quot;submitTripForm()&quot; class=&quot;text-ios-blue text-sm font-bold&quot;&gt;Speichern&lt;/button&gt;
-            &lt;/div&gt;
-
-            &lt;form id=&quot;trip-form&quot; onsubmit=&quot;handleFormSubmit(event)&quot; class=&quot;p-4 overflow-y-auto space-y-3 flex-1 no-scrollbar w-full max-w-full&quot;&gt;
-                &lt;input type=&quot;hidden&quot; id=&quot;form-id&quot;&gt;
-
-                &lt;div class=&quot;grid grid-cols-2 gap-2&quot;&gt;
-                    &lt;div&gt;
-                        &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;Datum&lt;/label&gt;
-                        &lt;input type=&quot;date&quot; id=&quot;form-date&quot; required class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                    &lt;/div&gt;
-                    &lt;div&gt;
-                        &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;Uhrzeit&lt;/label&gt;
-                        &lt;input type=&quot;time&quot; id=&quot;form-time&quot; required class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div&gt;
-                    &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;Startadresse&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; id=&quot;form-start&quot; placeholder=&quot;z.B. Zuhause&quot; required class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                &lt;/div&gt;
-
-                &lt;div&gt;
-                    &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;Zieladresse&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; id=&quot;form-end&quot; placeholder=&quot;z.B. Büro, Kundenstandort&quot; required class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;grid grid-cols-3 gap-2&quot;&gt;
-                    &lt;div&gt;
-                        &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;KM Start&lt;/label&gt;
-                        &lt;input type=&quot;number&quot; step=&quot;0.1&quot; id=&quot;form-km-start&quot; oninput=&quot;calculateDist()&quot; placeholder=&quot;10000&quot; class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                    &lt;/div&gt;
-                    &lt;div&gt;
-                        &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;KM Ende&lt;/label&gt;
-                        &lt;input type=&quot;number&quot; step=&quot;0.1&quot; id=&quot;form-km-end&quot; oninput=&quot;calculateDist()&quot; placeholder=&quot;10045&quot; class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                    &lt;/div&gt;
-                    &lt;div&gt;
-                        &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;Distanz (km)&lt;/label&gt;
-                        &lt;input type=&quot;number&quot; step=&quot;0.1&quot; id=&quot;form-distance&quot; required placeholder=&quot;45&quot; class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none font-bold text-ios-blue&quot;&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;grid grid-cols-2 gap-2&quot;&gt;
-                    &lt;div&gt;
-                        &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;Kategorie&lt;/label&gt;
-                        &lt;select id=&quot;form-category&quot; class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                            &lt;option value=&quot;Geschäftlich&quot;&gt;Geschäftlich&lt;/option&gt;
-                            &lt;option value=&quot;Privat&quot;&gt;Privat&lt;/option&gt;
-                            &lt;option value=&quot;Arbeitsweg&quot;&gt;Arbeitsweg&lt;/option&gt;
-                        &lt;/select&gt;
-                    &lt;/div&gt;
-                    &lt;div&gt;
-                        &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;Fahrzeug&lt;/label&gt;
-                        &lt;input type=&quot;text&quot; id=&quot;form-vehicle&quot; placeholder=&quot;M-AB 1234&quot; class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div&gt;
-                    &lt;label class=&quot;text-[11px] font-semibold text-ios-gray block mb-1&quot;&gt;Anlass / Notizen&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; id=&quot;form-notes&quot; placeholder=&quot;z.B. Kundentermin&quot; class=&quot;w-full bg-ios-lightBg dark:bg-ios-darkCardSec text-xs rounded-xl p-2.5 border border-gray-200 dark:border-gray-800 focus:outline-none&quot;&gt;
-                &lt;/div&gt;
-
-                &lt;div id=&quot;modal-delete-container&quot; class=&quot;pt-2 hidden&quot;&gt;
-                    &lt;button type=&quot;button&quot; onclick=&quot;triggerModalDelete()&quot; class=&quot;w-full bg-ios-red/10 text-ios-red py-2.5 rounded-xl font-semibold text-xs active:scale-95 transition flex items-center justify-center space-x-1&quot;&gt;
-                        &lt;svg class=&quot;w-4 h-4&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16&quot;/&gt;&lt;/svg&gt;
-                        &lt;span&gt;Fahrt löschen&lt;/span&gt;
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/form&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;!-- CUSTOM IOS CONFIRMATION ACTION SHEET --&gt;
-    &lt;div id=&quot;action-sheet-overlay&quot; class=&quot;fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden flex items-end justify-center p-3 w-full max-w-full&quot;&gt;
-        &lt;div class=&quot;w-full max-w-md space-y-2 animate-action-sheet&quot;&gt;
-            &lt;div class=&quot;bg-white/90 dark:bg-ios-darkCard/90 backdrop-blur-xl rounded-2xl overflow-hidden text-center divide-y divide-gray-200 dark:divide-gray-800&quot;&gt;
-                &lt;div class=&quot;p-3.5&quot;&gt;
-                    &lt;h4 id=&quot;action-sheet-title&quot; class=&quot;text-xs font-semibold text-ios-gray&quot;&gt;Fahrt löschen?&lt;/h4&gt;
-                    &lt;p id=&quot;action-sheet-sub&quot; class=&quot;text-[11px] text-ios-gray mt-0.5&quot;&gt;Diese Aktion kann nicht rückgängig gemacht werden.&lt;/p&gt;
-                &lt;/div&gt;
-                &lt;button id=&quot;action-sheet-confirm-btn&quot; onclick=&quot;executePendingDelete()&quot; class=&quot;w-full py-3 text-ios-red font-semibold text-sm active:bg-gray-100 dark:active:bg-gray-800 transition&quot;&gt;
-                    Löschen
-                &lt;/button&gt;
-            &lt;/div&gt;
-            &lt;button onclick=&quot;closeActionSheet()&quot; class=&quot;w-full bg-white dark:bg-ios-darkCard py-3.5 rounded-2xl font-bold text-ios-blue text-sm active:opacity-70 transition text-center&quot;&gt;
-                Abbrechen
-            &lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;!-- Toast Notification --&gt;
-    &lt;div id=&quot;toast&quot; class=&quot;fixed top-14 left-1/2 -translate-x-1/2 z-50 bg-gray-900/95 dark:bg-white/95 text-white dark:text-gray-900 px-4 py-2 rounded-full text-xs font-semibold shadow-xl opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md max-w-[85%] truncate&quot;&gt;
-        Meldung
-    &lt;/div&gt;
-
-    &lt;script&gt;
-        let trips = [];
+    <!-- JavaScript Application Logic -->
+    <script>
+        let trips = JSON.parse(localStorage.getItem('fahrtenbuch_trips')) || [];
         let pendingDeleteId = null;
 
-        window.onload = function() {
-            loadTrips();
+        function saveToStorage() {
+            localStorage.setItem('fahrtenbuch_trips', JSON.stringify(trips));
             renderTrips();
-            updateStats();
-        };
-
-        function loadTrips() {
-            const data = localStorage.getItem('fahrtenbuch_ios_data');
-            if (data) {
-                try {
-                    trips = JSON.parse(data);
-                } catch(e) {
-                    trips = [];
-                }
-            } else {
-                trips = [
-                    { id: 't_1', date: '2026-10-10', time: '08:30', start: 'München', end: 'Nürnberg', kmStart: 45000, kmEnd: 45170, distance: 170.0, category: 'Geschäftlich', vehicle: 'M-FB 2026', notes: 'Kundenbesuch ACME AG' },
-                    { id: 't_2', date: '2026-10-09', time: '17:00', start: 'Nürnberg', end: 'München', kmStart: 45170, kmEnd: 45340, distance: 170.0, category: 'Geschäftlich', vehicle: 'M-FB 2026', notes: 'Rückfahrt' },
-                    { id: 't_3', date: '2026-10-08', time: '12:15', start: 'Zuhause', end: 'Supermarkt', kmStart: 45340, kmEnd: 45348, distance: 8.0, category: 'Privat', vehicle: 'M-FB 2026', notes: 'Einkauf' }
-                ];
-                saveTrips();
-            }
-        }
-
-        function saveTrips() {
-            localStorage.setItem('fahrtenbuch_ios_data', JSON.stringify(trips));
-            renderTrips();
-            updateStats();
-        }
-
-        function showToast(msg) {
-            const t = document.getElementById('toast');
-            t.textContent = msg;
-            t.classList.remove('opacity-0', 'pointer-events-none');
-            t.classList.add('opacity-100');
-            setTimeout(() =&gt; {
-                t.classList.remove('opacity-100');
-                t.classList.add('opacity-0', 'pointer-events-none');
-            }, 2500);
+            renderStats();
         }
 
         function switchTab(tab) {
-            ['trips', 'stats', 'import', 'settings'].forEach(t =&gt; {
-                document.getElementById(`tab-${t}`).classList.add('hidden');
-                document.getElementById(`nav-${t}`).classList.remove('text-ios-blue');
-                document.getElementById(`nav-${t}`).classList.add('text-ios-gray');
+            ['trips', 'stats', 'settings'].forEach(t => {
+                document.getElementById('view-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('text-ios-blue');
+                document.getElementById('tab-' + t).classList.add('text-ios-gray');
             });
+            document.getElementById('view-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.remove('text-ios-gray');
+            document.getElementById('tab-' + tab).classList.add('text-ios-blue');
 
-            document.getElementById(`tab-${tab}`).classList.remove('hidden');
-            document.getElementById(`nav-${tab}`).classList.remove('text-ios-gray');
-            document.getElementById(`nav-${tab}`).classList.add('text-ios-blue');
-
-            const titles = {
-                trips: 'Fahrten',
-                stats: 'Statistik',
-                import: 'Import &amp; Export',
-                settings: 'App Info'
-            };
-            document.getElementById('page-title').textContent = titles[tab];
-        }
-
-        function renderTrips() {
-            const container = document.getElementById('trips-container');
-            const search = document.getElementById('search-input').value.toLowerCase();
-            const filterCat = document.getElementById('filter-category').value;
-
-            let filtered = [...trips].sort((a,b) =&gt; new Date(b.date + 'T' + (b.time || '00:00')) - new Date(a.date + 'T' + (a.time || '00:00')));
-
-            if (search) {
-                filtered = filtered.filter(t =&gt; 
-                    (t.start &amp;&amp; t.start.toLowerCase().includes(search)) ||
-                    (t.end &amp;&amp; t.end.toLowerCase().includes(search)) ||
-                    (t.notes &amp;&amp; t.notes.toLowerCase().includes(search)) ||
-                    (t.vehicle &amp;&amp; t.vehicle.toLowerCase().includes(search))
-                );
-            }
-
-            if (filterCat) {
-                filtered = filtered.filter(t =&gt; t.category === filterCat);
-            }
-
-            if (filtered.length === 0) {
-                container.innerHTML = `
-                    &lt;div class=&quot;text-center py-12 bg-white dark:bg-ios-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800&quot;&gt;
-                        &lt;svg class=&quot;w-10 h-10 text-ios-gray mx-auto mb-2 opacity-50&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;1.5&quot; d=&quot;M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z&quot;/&gt;&lt;/svg&gt;
-                        &lt;span class=&quot;text-xs font-semibold text-ios-gray block&quot;&gt;Keine Fahrten gefunden&lt;/span&gt;
-                    &lt;/div&gt;`;
-                return;
-            }
-
-            container.innerHTML = filtered.map(t =&gt; {
-                const badgeColor = t.category === 'Geschäftlich' ? 'bg-ios-blue/10 text-ios-blue' : t.category === 'Arbeitsweg' ? 'bg-ios-green/10 text-ios-green' : 'bg-ios-orange/10 text-ios-orange';
-                return `
-                    &lt;div class=&quot;bg-white dark:bg-ios-darkCard p-3.5 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xs flex flex-col justify-between w-full max-w-full overflow-hidden&quot;&gt;
-                        &lt;div class=&quot;flex items-center justify-between mb-1.5 w-full&quot;&gt;
-                            &lt;div class=&quot;flex items-center space-x-2 truncate&quot;&gt;
-                                &lt;span class=&quot;text-[10px] font-bold px-2 py-0.5 rounded-full ${badgeColor} flex-shrink-0&quot;&gt;${t.category || 'Privat'}&lt;/span&gt;
-                                &lt;span class=&quot;text-[11px] font-semibold text-ios-gray truncate&quot;&gt;${formatDate(t.date)} ${t.time ? '• ' + t.time : ''}&lt;/span&gt;
-                            &lt;/div&gt;
-                            &lt;span class=&quot;text-sm font-extrabold tracking-tight text-gray-900 dark:text-white flex-shrink-0 ml-2&quot;&gt;${parseFloat(t.distance || 0).toFixed(1)} km&lt;/span&gt;
-                        &lt;/div&gt;
-
-                        &lt;div class=&quot;text-xs font-semibold tracking-tight text-gray-800 dark:text-gray-100 truncate w-full&quot;&gt;
-                            ${escapeHtml(t.start)} &lt;span class=&quot;text-ios-gray font-normal&quot;&gt;→&lt;/span&gt; ${escapeHtml(t.end)}
-                        &lt;/div&gt;
-
-                        ${t.notes ? `&lt;div class=&quot;text-[11px] text-ios-gray truncate mt-1&quot;&gt;${escapeHtml(t.notes)}&lt;/div&gt;` : ''}
-
-                        &lt;div class=&quot;flex items-center justify-between mt-2.5 pt-2 border-t border-gray-100 dark:border-gray-800/60 w-full text-[11px]&quot;&gt;
-                            &lt;span class=&quot;text-ios-gray truncate&quot;&gt;${escapeHtml(t.vehicle || 'Standard')}&lt;/span&gt;
-                            &lt;div class=&quot;flex items-center space-x-3 flex-shrink-0&quot;&gt;
-                                &lt;button onclick=&quot;openModal('${t.id}')&quot; class=&quot;text-ios-blue font-semibold active:opacity-60 flex items-center space-x-1&quot;&gt;
-                                    &lt;span&gt;Bearbeiten&lt;/span&gt;
-                                &lt;/button&gt;
-                                &lt;button onclick=&quot;askDeleteSingleTrip('${t.id}')&quot; class=&quot;text-ios-red font-semibold p-1 active:scale-90 transition flex items-center justify-center&quot;&gt;
-                                    &lt;svg class=&quot;w-4 h-4&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16&quot;/&gt;&lt;/svg&gt;
-                                &lt;/button&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                `;
-            }).join('');
-        }
-
-        function askDeleteSingleTrip(id) {
-            pendingDeleteId = id;
-            document.getElementById('action-sheet-title').textContent = 'Fahrt löschen?';
-            document.getElementById('action-sheet-sub').textContent = 'Möchtest du diesen Eintrag wirklich aus dem Fahrtenbuch entfernen?';
-            document.getElementById('action-sheet-confirm-btn').textContent = 'Fahrt löschen';
-            document.getElementById('action-sheet-overlay').classList.remove('hidden');
-        }
-
-        function triggerModalDelete() {
-            const id = document.getElementById('form-id').value;
-            if (id) {
-                closeModal();
-                askDeleteSingleTrip(id);
-            }
-        }
-
-        function executePendingDelete() {
-            if (pendingDeleteId === 'ALL') {
-                trips = [];
-                saveTrips();
-                showToast('Alle Daten gelöscht');
-            } else if (pendingDeleteId) {
-                trips = trips.filter(t =&gt; t.id !== pendingDeleteId);
-                saveTrips();
-                showToast('Fahrt erfolgreich gelöscht');
-            }
-            closeActionSheet();
-        }
-
-        function closeActionSheet() {
-            pendingDeleteId = null;
-            document.getElementById('action-sheet-overlay').classList.add('hidden');
-        }
-
-        function askClearAllData() {
-            pendingDeleteId = 'ALL';
-            document.getElementById('action-sheet-title').textContent = 'ALLE Daten löschen?';
-            document.getElementById('action-sheet-sub').textContent = 'Alle gespeicherten Fahrten werden unwiderruflich aus dem Speicher gelöscht.';
-            document.getElementById('action-sheet-confirm-btn').textContent = 'Alles löschen';
-            document.getElementById('action-sheet-overlay').classList.remove('hidden');
-        }
-
-        function calculateDist() {
-            const start = parseFloat(document.getElementById('form-km-start').value);
-            const end = parseFloat(document.getElementById('form-km-end').value);
-            if (!isNaN(start) &amp;&amp; !isNaN(end) &amp;&amp; end &gt;= start) {
-                document.getElementById('form-distance').value = (end - start).toFixed(1);
-            }
+            const titles = { trips: 'Fahrten', stats: 'Statistik', settings: 'Einstellungen' };
+            const subtitles = { trips: 'Fahrtenbuch für iOS', stats: 'Übersicht & Auswertung', settings: 'Daten & CSV Import' };
+            document.getElementById('page-title').innerText = titles[tab];
+            document.getElementById('page-subtitle').innerText = subtitles[tab];
         }
 
         function openModal(id = null) {
-            const overlay = document.getElementById('modal-overlay');
-            const deleteBtn = document.getElementById('modal-delete-container');
-            overlay.classList.remove('hidden');
-
+            document.getElementById('trip-modal').classList.remove('hidden');
             if (id) {
-                const t = trips.find(item =&gt; item.id === id);
-                if (!t) return;
-                document.getElementById('modal-header-title').textContent = 'Fahrt bearbeiten';
-                document.getElementById('form-id').value = t.id;
-                document.getElementById('form-date').value = t.date || '';
-                document.getElementById('form-time').value = t.time || '';
-                document.getElementById('form-start').value = t.start || '';
-                document.getElementById('form-end').value = t.end || '';
-                document.getElementById('form-km-start').value = t.kmStart || '';
-                document.getElementById('form-km-end').value = t.kmEnd || '';
-                document.getElementById('form-distance').value = t.distance || '';
-                document.getElementById('form-category').value = t.category || 'Geschäftlich';
-                document.getElementById('form-vehicle').value = t.vehicle || '';
-                document.getElementById('form-notes').value = t.notes || '';
-                deleteBtn.classList.remove('hidden');
+                document.getElementById('modal-title').innerText = 'Fahrt bearbeiten';
+                const trip = trips.find(t => t.id === id);
+                if (trip) {
+                    document.getElementById('trip-id').value = trip.id;
+                    document.getElementById('trip-date').value = trip.date;
+                    document.getElementById('trip-start').value = trip.start;
+                    document.getElementById('trip-destination').value = trip.destination;
+                    document.getElementById('trip-km').value = trip.km;
+                    document.getElementById('trip-category').value = trip.category;
+                    document.getElementById('trip-purpose').value = trip.purpose || '';
+                    document.getElementById('modal-delete-btn').classList.remove('hidden');
+                }
             } else {
-                document.getElementById('modal-header-title').textContent = 'Neuer Eintrag';
+                document.getElementById('modal-title').innerText = 'Neue Fahrt';
                 document.getElementById('trip-form').reset();
-                document.getElementById('form-id').value = '';
-                
-                const now = new Date();
-                document.getElementById('form-date').value = now.toISOString().slice(0, 10);
-                document.getElementById('form-time').value = now.toTimeString().slice(0, 5);
-                deleteBtn.classList.add('hidden');
+                document.getElementById('trip-id').value = '';
+                document.getElementById('trip-date').valueAsDate = new Date();
+                document.getElementById('modal-delete-btn').classList.add('hidden');
             }
         }
 
         function closeModal() {
-            document.getElementById('modal-overlay').classList.add('hidden');
+            document.getElementById('trip-modal').classList.add('hidden');
         }
 
-        function submitTripForm() {
-            document.getElementById('trip-form').requestSubmit();
-        }
-
-        function handleFormSubmit(e) {
+        function saveTrip(e) {
             e.preventDefault();
-            const id = document.getElementById('form-id').value;
-
-            const newTrip = {
-                id: id || 'trip_' + Date.now(),
-                date: document.getElementById('form-date').value,
-                time: document.getElementById('form-time').value,
-                start: document.getElementById('form-start').value,
-                end: document.getElementById('form-end').value,
-                kmStart: parseFloat(document.getElementById('form-km-start').value) || null,
-                kmEnd: parseFloat(document.getElementById('form-km-end').value) || null,
-                distance: parseFloat(document.getElementById('form-distance').value) || 0,
-                category: document.getElementById('form-category').value,
-                vehicle: document.getElementById('form-vehicle').value,
-                notes: document.getElementById('form-notes').value
+            const id = document.getElementById('trip-id').value;
+            const tripData = {
+                id: id ? Number(id) : Date.now(),
+                date: document.getElementById('trip-date').value,
+                start: document.getElementById('trip-start').value,
+                destination: document.getElementById('trip-destination').value,
+                km: parseFloat(document.getElementById('trip-km').value) || 0,
+                category: document.getElementById('trip-category').value,
+                purpose: document.getElementById('trip-purpose').value
             };
 
             if (id) {
-                const idx = trips.findIndex(t =&gt; t.id === id);
-                if (idx !== -1) trips[idx] = newTrip;
-                showToast('Fahrt aktualisiert');
+                const index = trips.findIndex(t => t.id === Number(id));
+                if (index !== -1) trips[index] = tripData;
             } else {
-                trips.push(newTrip);
-                showToast('Fahrt gespeichert');
+                trips.unshift(tripData);
             }
 
-            saveTrips();
+            saveToStorage();
             closeModal();
         }
 
-        function updateStats() {
-            const totalKm = trips.reduce((s, t) =&gt; s + (parseFloat(t.distance) || 0), 0);
-            const totalCount = trips.length;
-
-            const bizKm = trips.filter(t =&gt; t.category === 'Geschäftlich').reduce((s, t) =&gt; s + (parseFloat(t.distance) || 0), 0);
-            const comKm = trips.filter(t =&gt; t.category === 'Arbeitsweg').reduce((s, t) =&gt; s + (parseFloat(t.distance) || 0), 0);
-            const privKm = trips.filter(t =&gt; t.category === 'Privat').reduce((s, t) =&gt; s + (parseFloat(t.distance) || 0), 0);
-
-            document.getElementById('stat-total-km').textContent = totalKm.toFixed(1) + ' km';
-            document.getElementById('stat-total-count').textContent = `${totalCount} Fahrten gesamt`;
-
-            document.getElementById('stat-business-km').textContent = bizKm.toFixed(1) + ' km';
-            const bizPercent = totalKm &gt; 0 ? Math.round((bizKm / totalKm) * 100) : 0;
-            document.getElementById('stat-business-percent').textContent = `${bizPercent}% anteilig`;
-
-            if (totalKm &gt; 0) {
-                document.getElementById('bar-business').style.width = `${(bizKm / totalKm) * 100}%`;
-                document.getElementById('bar-commute').style.width = `${(comKm / totalKm) * 100}%`;
-                document.getElementById('bar-private').style.width = `${(privKm / totalKm) * 100}%`;
-            } else {
-                document.getElementById('bar-business').style.width = '0%';
-                document.getElementById('bar-commute').style.width = '0%';
-                document.getElementById('bar-private').style.width = '0%';
-            }
-
-            document.getElementById('stat-biz-val').textContent = bizKm.toFixed(0) + ' km';
-            document.getElementById('stat-com-val').textContent = comKm.toFixed(0) + ' km';
-            document.getElementById('stat-priv-val').textContent = privKm.toFixed(0) + ' km';
-
-            const avg = totalCount &gt; 0 ? totalKm / totalCount : 0;
-            const maxKm = trips.length &gt; 0 ? Math.max(...trips.map(t =&gt; parseFloat(t.distance) || 0)) : 0;
-            const vehicles = new Set(trips.map(t =&gt; t.vehicle).filter(Boolean)).size;
-
-            document.getElementById('stat-avg-km').textContent = avg.toFixed(1) + ' km';
-            document.getElementById('stat-max-km').textContent = maxKm.toFixed(1) + ' km';
-            document.getElementById('stat-vehicle-count').textContent = vehicles || 1;
+        function confirmDelete(id) {
+            pendingDeleteId = id;
+            document.getElementById('confirm-sheet').classList.remove('hidden');
+            document.getElementById('confirm-yes-btn').onclick = function() {
+                trips = trips.filter(t => t.id !== pendingDeleteId);
+                saveToStorage();
+                closeConfirmSheet();
+                closeModal();
+            };
         }
 
-        function handleFileSelect(e) {
-            const file = e.target.files[0];
+        function closeConfirmSheet() {
+            document.getElementById('confirm-sheet').classList.add('hidden');
+            pendingDeleteId = null;
+        }
+
+        function deleteCurrentEditingTrip() {
+            const id = Number(document.getElementById('trip-id').value);
+            if (id) confirmDelete(id);
+        }
+
+        function renderTrips() {
+            const search = document.getElementById('search-input').value.toLowerCase();
+            const filterCat = document.getElementById('filter-category').value;
+            const listEl = document.getElementById('trips-list');
+
+            const filtered = trips.filter(t => {
+                const matchesSearch = (t.start + ' ' + t.destination + ' ' + (t.purpose || '')).toLowerCase().includes(search);
+                const matchesCat = !filterCat || t.category === filterCat;
+                return matchesSearch && matchesCat;
+            });
+
+            let totalKm = 0;
+            filtered.forEach(t => totalKm += Number(t.km) || 0);
+
+            document.getElementById('stat-total-km').innerText = totalKm.toFixed(1) + ' km';
+            document.getElementById('stat-total-count').innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                listEl.innerHTML = `<div class="text-center py-10 text-xs text-ios-gray">Keine Fahrten gefunden</div>`;
+                return;
+            }
+
+            listEl.innerHTML = filtered.map(t => `
+                <div onclick="openModal(${t.id})" class="bg-white dark:bg-ios-darkCard rounded-2xl p-3.5 shadow-sm border border-gray-200/60 dark:border-gray-800/60 flex items-center justify-between active:scale-[0.99] transition-all cursor-pointer">
+                    <div class="space-y-1 min-w-0 flex-1 pr-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full ${t.category === 'Geschäftlich' ? 'bg-ios-blue/10 text-ios-blue' : t.category === 'Arbeitsweg' ? 'bg-ios-orange/10 text-ios-orange' : 'bg-gray-200 dark:bg-gray-800 text-ios-gray'}">${t.category}</span>
+                            <span class="text-[11px] text-ios-gray">${t.date}</span>
+                        </div>
+                        <div class="text-xs font-bold truncate">${t.start} → ${t.destination}</div>
+                        ${t.purpose ? `<div class="text-[11px] text-ios-gray truncate">${t.purpose}</div>` : ''}
+                    </div>
+                    <div class="flex items-center space-x-3 flex-shrink-0">
+                        <span class="text-sm font-bold">${Number(t.km).toFixed(1)} km</span>
+                        <button onclick="event.stopPropagation(); confirmDelete(${t.id})" class="text-ios-gray hover:text-ios-red p-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderStats() {
+            const statsList = document.getElementById('category-stats-list');
+            const cats = {};
+            let grandTotal = 0;
+
+            trips.forEach(t => {
+                const cat = t.category || 'Sonstige';
+                const km = Number(t.km) || 0;
+                cats[cat] = (cats[cat] || 0) + km;
+                grandTotal += km;
+            });
+
+            if (Object.keys(cats).length === 0) {
+                statsList.innerHTML = `<div class="text-xs text-ios-gray">Noch keine Daten vorhanden</div>`;
+                return;
+            }
+
+            statsList.innerHTML = Object.entries(cats).map(([cat, km]) => `
+                <div class="flex justify-between items-center py-1.5 border-b border-gray-100 dark:border-gray-800 last:border-none">
+                    <span class="font-medium">${cat}</span>
+                    <span class="font-bold">${km.toFixed(1)} km (${grandTotal > 0 ? Math.round((km / grandTotal) * 100) : 0}%)</span>
+                </div>
+            `).join('');
+        }
+
+        function importDrivenoteCSV(event) {
+            const file = event.target.files[0];
             if (!file) return;
+
             const reader = new FileReader();
-            reader.onload = function(evt) {
-                document.getElementById('csv-text-input').value = evt.target.result;
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const lines = text.split(/\r\n|\n/);
+                if (lines.length < 2) {
+                    alert('Die CSV-Datei scheint leer zu sein.');
+                    return;
+                }
+
+                const delimiter = lines[0].includes(';') ? ';' : ',';
+                const headers = lines[0].split(delimiter).map(h => h.trim().toLowerCase().replace(/['"]+/g, ''));
+                
+                let importedCount = 0;
+                for (let i = 1; i < lines.length; i++) {
+                    if (!lines[i].trim()) continue;
+                    const cols = lines[i].split(delimiter).map(c => c.trim().replace(/['"]+/g, ''));
+                    if (cols.length >= 3) {
+                        trips.push({
+                            id: Date.now() + i,
+                            date: cols[0] || new Date().toISOString().split('T')[0],
+                            start: cols[1] || 'Start',
+                            destination: cols[2] || 'Ziel',
+                            km: parseFloat(cols[3]) || 0,
+                            category: cols[4] || 'Geschäftlich',
+                            purpose: cols[5] || ''
+                        });
+                        importedCount++;
+                    }
+                }
+                saveToStorage();
+                alert(`${importedCount} Fahrten erfolgreich importiert!`);
+                switchTab('trips');
             };
             reader.readAsText(file);
         }
 
-        function importCSVData() {
-            const raw = document.getElementById('csv-text-input').value.trim();
-            if (!raw) {
-                showToast('Bitte CSV-Daten eingeben');
-                return;
-            }
-
-            const lines = raw.split(/\r\n|\n/);
-            if (lines.length &lt; 1) return;
-
-            const delim = lines[0].includes(';') ? ';' : ',';
-            let addedCount = 0;
-
-            lines.forEach((line, index) =&gt; {
-                if (!line.trim()) return;
-                const cols = line.split(delim).map(c =&gt; c.replace(/^&quot;|&quot;$/g, '').trim());
-
-                if (index === 0 &amp;&amp; (cols[0].toLowerCase().includes('datum') || cols[0].toLowerCase().includes('date'))) return;
-
-                if (cols.length &gt;= 4) {
-                    const parsedDate = parseDateVal(cols[0]);
-                    const start = cols[1] || 'Import';
-                    const end = cols[2] || 'Import';
-                    const distance = parseFloat((cols[3] || '0').replace(',', '.')) || 0;
-                    const cat = mapCategory(cols[4] || '');
-                    const notes = cols[5] || 'Drivenote Import';
-
-                    trips.push({
-                        id: 'dn_' + Math.random().toString(36).substr(2, 9),
-                        date: parsedDate,
-                        time: '12:00',
-                        start: start,
-                        end: end,
-                        kmStart: null,
-                        kmEnd: null,
-                        distance: distance,
-                        category: cat,
-                        vehicle: 'Drivenote',
-                        notes: notes
-                    });
-                    addedCount++;
-                }
-            });
-
-            saveTrips();
-            showToast(`${addedCount} Fahrten importiert!`);
-            switchTab('trips');
-        }
-
-        function mapCategory(str) {
-            const s = str.toLowerCase();
-            if (s.includes('privat')) return 'Privat';
-            if (s.includes('arbeit') || s.includes('pendel')) return 'Arbeitsweg';
-            return 'Geschäftlich';
-        }
-
-        function parseDateVal(str) {
-            if (!str) return new Date().toISOString().slice(0, 10);
-            const match = str.match(/^(\d{2})\.(\d{2})\.(\d{4})/);
-            if (match) return `${match[3]}-${match[2]}-${match[1]}`;
-            return str.slice(0, 10);
-        }
-
         function exportCSV() {
             if (trips.length === 0) {
-                showToast('Keine Fahrten vorhanden');
+                alert('Keine Fahrten zum Exportieren vorhanden.');
                 return;
             }
-
-            let csv = &quot;Datum;Uhrzeit;Start;Ziel;KM_Start;KM_Ende;Distanz_KM;Kategorie;Fahrzeug;Anlass\n&quot;;
-            trips.forEach(t =&gt; {
-                csv += `&quot;${t.date}&quot;;&quot;${t.time || ''}&quot;;&quot;${t.start}&quot;;&quot;${t.end}&quot;;&quot;${t.kmStart || ''}&quot;;&quot;${t.kmEnd || ''}&quot;;&quot;${t.distance}&quot;;&quot;${t.category}&quot;;&quot;${t.vehicle || ''}&quot;;&quot;${t.notes || ''}&quot;\n`;
+            let csv = 'Datum;Start;Ziel;Kilometer;Kategorie;Zweck\n';
+            trips.forEach(t => {
+                csv += `"${t.date}","${t.start}","${t.destination}","${t.km}","${t.category}","${t.purpose || ''}"\n`;
             });
-
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `Fahrtenbuch_Export_${new Date().toISOString().slice(0,10)}.csv`;
+            a.download = 'fahrtenbuch_export.csv';
             a.click();
-            showToast('Export wurde heruntergeladen');
         }
 
-        function formatDate(d) {
-            if (!d) return '';
-            const parts = d.split('-');
-            if (parts.length === 3) return `${parts[2]}.${parts[1]}.${parts[0]}`;
-            return d;
+        function clearAllData() {
+            if (confirm('Möchtest du wirklich alle Fahrten unwiderruflich löschen?')) {
+                trips = [];
+                saveToStorage();
+            }
         }
 
-        function escapeHtml(str) {
-            if (!str) return '';
-            return str.replace(/[&amp;&lt;&gt;&quot;']/g, m =&gt; ({ '&amp;': '&amp;amp;', '&lt;': '&amp;lt;', '&gt;': '&amp;gt;', '&quot;': '&amp;quot;', &quot;'&quot;: '&amp;#039;' })[m]);
-        }
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
+        // Init
+        renderTrips();
+        renderStats();
+    </script>
 </body>
 </html>
